@@ -14,7 +14,7 @@
   <!-- 数据库的用户名 -->  
   <property name="user_name"><value>root</value></property>  
   <!-- 数据库的密码 -->  
-  <property name="pass_word"><value>yxb123</value></property>  
+  <property name="pass_word"><value>123456</value></property>  
   <!-- 是否创建新数据库（为true表示在没有数据库时会创建新的数据库）-->  
   <property name="is_create_db"><value>false</value></property>  
   <!-- 是否立马对库操作，建议第一次执行value=false（false不会真正执行数据操作，会先打印出执行计划）-->  
