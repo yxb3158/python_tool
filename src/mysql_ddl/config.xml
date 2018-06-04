@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">  
+<configs>
+ <!-- 建立数据源 -->  
+ <config id="config">
+  <!-- 数据库前缀名(如果一个库则为全名如"XXX"，若多个库则为前缀公共部分,如"XXX_")-->  
+  <property name="db_pre_name"><value>DB_</value></property>  
+  <!-- 分库总个数(若为分库则大于1，若只是分表则为1)-->  
+  <property name="db_total_num"><value>4</value></property>  
+  <!-- 分表总个数(不管分多少库都是是总表个数)-->  
+  <property name="table_total_num"><value>1024</value></property>  
+  <!-- 数据库的ip地址,也可以填域名 -->  
+  <property name="host_ip"><value>127.0.0.1</value></property> 
+  <!-- 数据库的用户名 -->  
+  <property name="user_name"><value>root</value></property>  
+  <!-- 数据库的密码 -->  
+  <property name="pass_word"><value>yxb123</value></property>  
+  <!-- 是否创建新数据库（为true表示在没有数据库时会创建新的数据库）-->  
+  <property name="is_create_db"><value>false</value></property>  
+  <!-- 是否立马对库操作，建议第一次执行value=false（false不会真正执行数据操作，会先打印出执行计划）-->  
+  <property name="is_process_db"><value>false</value></property>  
+ </config>   
+</configs>
