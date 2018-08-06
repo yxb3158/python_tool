@@ -46,9 +46,9 @@ def parseXml(xml_name):
         for config in configs:  
             propertyList = config.findall('property')  
         for prop in propertyList:
-            proname = prop.get('name')  
-            provalue= prop.find('value').text
-            propDic[proname] = provalue 
+            prop_name = prop.get('name')  
+            prop_value= prop.find('value').text
+            propDic[prop_name] = prop_value
 #         print propDic
     except Exception,e:
         print repr(e)
