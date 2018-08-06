@@ -4,13 +4,15 @@
  <!-- 建立数据源 -->  
  <config id="config">
   <!-- 数据库前缀名(如果一个库则为全名如"XXX"，若多个库则为前缀公共部分,如"XXX_")-->  
-  <property name="db_pre_name"><value>DB_</value></property>  
+  <property name="db_pre_name"><value>DB0</value></property>  
   <!-- 分库总个数(若为分库则大于1，若只是分表则为1)-->  
   <property name="db_total_num"><value>4</value></property>  
   <!-- 分表总个数(不管分多少库都是是总表个数)-->  
   <property name="table_total_num"><value>1024</value></property>  
   <!-- 数据库的ip地址,也可以填域名 -->  
   <property name="host_ip"><value>127.0.0.1</value></property> 
+  <!-- 数据库端口号 -->  
+  <property name="host_port"><value>3306</value></property> 
   <!-- 数据库的用户名 -->  
   <property name="user_name"><value>root</value></property>  
   <!-- 数据库的密码 -->  

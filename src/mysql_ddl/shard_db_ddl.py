@@ -27,6 +27,7 @@ class MySQLdbCOnn:
         self.db_total_num=configDic['db_total_num']
         self.table_total_num=configDic['table_total_num']
         self.host_ip =configDic['host_ip' ]
+        self.host_port =configDic['host_port' ]
         self.user_name = configDic['user_name']
         self.pass_word = configDic['pass_word']
         self.is_create_db=configDic['is_create_db']
@@ -57,7 +58,7 @@ def parseXml(xml_name):
 def mySQLdbDDL(connClazz,db_name,sql):
     # 打开数据库连接
     try:
-        conn = MySQLdb.connect(connClazz.host_ip, connClazz.user_name, connClazz.pass_word, charset='utf8' )
+        conn = MySQLdb.connect(connClazz.host_ip, connClazz.user_name, connClazz.pass_word,port=connClazz.host_port, charset='utf8' )
     except Exception,e:
         print 'connClazz error!! ',repr(e)
         return
@@ -103,7 +104,7 @@ def print_operatin_plan(sql_sample,mySQLdbCOnn):
     print '\t具体分配如下:'
     if DB_NUM>1:
         for i in range(0,DB_NUM):
-            db_name=mySQLdbCOnn.db_pre_name+"%d"%i
+            db_name=mySQLdbCOnn.db_pre_name+"%d"%(i+1)
             print '\t数据库:【db_name】=%s,表编号:%d~%d'%(db_name,(TABLE_NUM/DB_NUM)*i,(TABLE_NUM/DB_NUM)*(i+1)-1)
     elif DB_NUM==1:
         print '\t数据库:【db_name】=%s,表编号:%d~%d'%(mySQLdbCOnn.db_pre_name,0,TABLE_NUM)
@@ -142,7 +143,7 @@ if __name__=='__main__':
     DB_NUM=int(mySQLdbCOnn.db_total_num)
     for i in range(0,TABLE_NUM):
         if DB_NUM>1:
-            db_index=i/(TABLE_NUM/DB_NUM)
+            db_index=i/(TABLE_NUM/DB_NUM)+1
             if db_index>DB_NUM:
                 db_index=DB_NUM-1
             db_name=mySQLdbCOnn.db_pre_name+"%d"%db_index
